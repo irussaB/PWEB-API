@@ -11,12 +11,12 @@
     if(!empty($data['senha'])){
         $sql = "update usuarios set usunome = ?, usulogin = ?, ususenha = MD5(?) where usuid = ?;";
         $prp = $pdo->prepare($sql);
-        $prp->execute(array($nome,$login,$senha,$id));
+        $prp->execute([$nome,$login,$senha,$id]);
     }
     else{
         $sql = "update usuarios set usunome = ?, usulogin = ? where usuid = ? ;";        
         $prp = $pdo->prepare($sql);
-        $prp->execute(array($nome,$login,$id));
+        $prp->execute([$nome,$login,$id]);
     }
     Conexao::desconectar();
     //{"nome":"valor","login":"valor","senha":"valor","id":"valor"}

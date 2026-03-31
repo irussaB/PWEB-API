@@ -7,9 +7,14 @@
     $data = json_decode($json,true);
     $usuario = $data['usuario'];
     $senha = $data['senha'];
-    $sql = "select * from usuarios where usulogin = '$usuario' and ususenha = MD5($senha);";
+    $sql = "select 
+    usuid as id, 
+    usunome as nome,
+    usulogin as usuario,
+    usulogado as logado
+    from usuarios where usulogin = ? and ususenha = MD5(?);";
     $prp = $pdo->prepare($sql);
-    $prp->execute();
+    $prp->execute([$usuario,$senha]);
     $data = $prp->fetchall(PDO::FETCH_ASSOC);
     echo json_encode($data);
     Conexao::desconectar();
