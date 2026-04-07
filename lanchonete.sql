@@ -3,10 +3,16 @@ use lanchonete;
 create table usuarios
     (
         usuid int primary key auto_increment,
-        usunome varchar(100),
-        usulogin varchar(100),
-        ususenha varchar(100),
+        usunome varchar(150),
+        usulogin varchar(150),
+        ususenha varchar(150),
         usulogado boolean default 0
+    );
+create table categorias
+    (
+        catid int primary key auto_increment,
+        catnome varchar(150),
+        catativo boolean default 1
     );
 
 INSERT INTO usuarios(usunome,usulogin,ususenha)
@@ -17,4 +23,12 @@ VALUE
 ('Pedro de Sales Santos','Salisson',MD5(16042008)),
 ('Leonardo Camargo Graminha','Grama',MD5(31122007)),
 ('Gabriel Pereira Alves','Biel',MD5(32102008))
+;
+
+INSERT INTO categorias(catnome)
+VALUE
+('Promoção do dia'),
+('Lanches'),
+('Porções'),
+('Bebidas')
 ;
