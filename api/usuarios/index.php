@@ -5,12 +5,12 @@
 
     $json = filter_input(INPUT_GET,'json');
     $data = json_decode($json,true);
-    $op = $data['op'];
-    $id = $data['id'];
-    $nome = $data['nome'];
-    $login = $data['login'];
-    $senha = $data['senha'];
-    $logado = $data['logado'];
+    $op = $data['op']??'';
+    $id = $data['id']??'';
+    $nome = $data['nome']??'';
+    $login = $data['login']??'';
+    $senha = $data['senha']??'';
+    $logado = $data['logado']??'';
  
     switch ($op) {
         case 'i':
