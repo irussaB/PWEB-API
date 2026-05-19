@@ -36,8 +36,10 @@
             $prp->execute([$nome,$ativo,$id]);
             break;
         case 'd':
-            echo "Pendente";
-            break; 
+            $sql = "delete from categorias where catid = ? ;";        
+            $prp = $pdo->prepare($sql);
+            $prp->execute([$id]);
+            break;
         default:
             echo "Parametro Inváilido";
     }

@@ -46,8 +46,10 @@
             }
             break;
         case 'd':
-            echo "Pendente";
-            break;    
+            $sql = "delete from usuarios where usuid = ? ;";        
+            $prp = $pdo->prepare($sql);
+            $prp->execute([$$id]);
+            break;   
         case 'l':
             $sql = "select usuid as id, usunome as nome, usulogin as usuario, usulogado as logado from usuarios where usulogin = ? and ususenha = MD5(?);";
             $prp = $pdo->prepare($sql);
